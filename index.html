@@ -22,7 +22,7 @@
                 videoElement.play().catch(error => console.log("Error al reproducir video: ", error));
             }
 
-            videoElement.addEventListener("ended", changeVideo);
+            setInterval(changeVideo, 8000); // Cambia el video cada 8 segundos
         });
     </script>
 </head>
@@ -31,7 +31,7 @@
     <!-- Hero Section con Carrousel de Videos -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 w-full h-full">
-            <video id="hero-video" autoplay loop muted playsinline class="absolute w-full h-full object-cover">
+            <video id="hero-video" autoplay muted playsinline class="absolute w-full h-full object-cover">
                 <source src="https://videocdn.cdnpk.net/videos/c5c7bdbe-8de0-4b43-a938-fd61d5143eee/horizontal/previews/clear/large.mp4" type="video/mp4">
             </video>
         </div>
