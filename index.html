@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video Creations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let videos = [
+                "https://videocdn.cdnpk.net/videos/c5c7bdbe-8de0-4b43-a938-fd61d5143eee/horizontal/previews/clear/large.mp4",
+                "https://videocdn.cdnpk.net/videos/bf01340b-f9d2-5e2e-aa9b-051bad50f86f/horizontal/previews/clear/large.mp4",
+                "https://videocdn.cdnpk.net/videos/6d9ee685-7f72-575a-95ba-ddd2ebadf497/horizontal/previews/clear/large.mp4"
+            ];
+            let videoIndex = 0;
+            let videoElement = document.getElementById("hero-video");
+
+            function changeVideo() {
+                videoIndex = (videoIndex + 1) % videos.length;
+                videoElement.src = videos[videoIndex];
+                videoElement.load();
+                videoElement.play().catch(error => console.log("Error al reproducir video: ", error));
+            }
+
+            videoElement.addEventListener("ended", changeVideo);
+        });
+    </script>
+</head>
+<body class="bg-black text-white">
+    
+    <!-- Hero Section con Carrousel de Videos -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 w-full h-full">
+            <video id="hero-video" autoplay loop muted playsinline class="absolute w-full h-full object-cover">
+                <source src="https://videocdn.cdnpk.net/videos/c5c7bdbe-8de0-4b43-a938-fd61d5143eee/horizontal/previews/clear/large.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="relative text-center px-6 z-10 bg-black bg-opacity-50 p-6 rounded-lg">
+            <h1 class="text-xl md:text-3xl lg:text-5xl font-bold whitespace-nowrap">Transforma tus fotos en videos profesionales con IA</h1>
+            <p class="mt-4 text-sm md:text-lg">Muéstrales el proceso. Haz que se enamoren de los detalles. Conecta con tu audiencia.</p>
+            <a href="#contacto" class="mt-6 inline-block bg-red-500 text-white px-6 py-3 text-lg rounded-lg">Solicita tu Video</a>
+        </div>
+    </section>
+    
+    <!-- Sobre Nosotros -->
+    <section class="py-16 px-6 text-center">
+        <h2 class="text-3xl font-bold">Sobre Nosotros</h2>
+        <p class="mt-4 max-w-3xl mx-auto">En AI Video Creations, ayudamos a restaurantes y hoteles a destacar con contenido visual atractivo generado con IA. Sin necesidad de conocimientos en edición, solo sube tus fotos y nosotros nos encargamos del resto.</p>
+    </section>
+    
+    <!-- Galería de Imágenes -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 px-6">
+        <div>
+            <img src="https://img.freepik.com/free-photo/close-up-person-with-red-apron-holding-dough_23-2148296872.jpg?t=st=1741956548~exp=1741960148~hmac=095dbf8a292b186f0830fe0204106f0ca53373f3c44371818c874ddc29069641&w=826" class="rounded-lg shadow-lg h-64 object-cover w-full">
+            <p class="mt-2 text-center font-bold text-lg">Muéstrales el proceso</p>
+            <p class="text-center text-sm">Deja que tus clientes vean cada detalle del amor y dedicación en cada plato.</p>
+        </div>
+        <div>
+            <img src="https://img.freepik.com/free-photo/chef-pouring-special-sauce-pork-ribs-kitchen_181624-61946.jpg" class="rounded-lg shadow-lg h-64 object-cover w-full">
+            <p class="mt-2 text-center font-bold text-lg">Haz que se enamoren de los detalles</p>
+            <p class="text-center text-sm">Cada ingrediente, cada textura, cada aroma, convertido en una historia visual irresistible.</p>
+        </div>
+        <div>
+            <img src="https://img.freepik.com/free-photo/portrait-male-chef-enjoying-smell-prepared-food_23-2147863758.jpg" class="rounded-lg shadow-lg h-64 object-cover w-full">
+            <p class="mt-2 text-center font-bold text-lg">Conecta con tu audiencia</p>
+            <p class="text-center text-sm">Muestra la pasión detrás de tu negocio y crea un vínculo con tus clientes.</p>
+        </div>
+    </section>
+    
+    <!-- Formulario de Contacto -->
+    <section id="contacto" class="py-16 px-6 text-center">
+        <h2 class="text-3xl font-bold">Contáctanos</h2>
+        <form action="ENDPOINT_AQUI" method="POST" class="mt-6 max-w-lg mx-auto">
+            <input type="text" name="nombre" placeholder="Tu Nombre" class="w-full p-3 mb-4 border rounded-lg">
+            <input type="email" name="email" placeholder="Tu Correo Electrónico" class="w-full p-3 mb-4 border rounded-lg">
+            <textarea name="mensaje" placeholder="Cuéntanos sobre tu proyecto" class="w-full p-3 mb-4 border rounded-lg"></textarea>
+            <button type="submit" class="bg-red-500 text-white px-6 py-3 rounded-lg">Enviar</button>
+        </form>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-6 text-center">
+        <p>&copy; 2025 AI Video Creations | Contacto: <a href="mailto:flaviaromanofrey@gmail.com" class="underline">flaviaromanofrey@gmail.com</a></p>
+    </footer>
+    
+</body>
+</html>
