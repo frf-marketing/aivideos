@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Video Creations</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 1;
+        }
+    </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             let videos = [
@@ -14,6 +24,7 @@
             ];
             let videoIndex = 0;
             let videoElement = document.getElementById("hero-video");
+            let fallbackImage = document.getElementById("hero-image");
 
             function changeVideo() {
                 videoIndex = (videoIndex + 1) % videos.length;
@@ -22,21 +33,31 @@
                 videoElement.play().catch(error => console.log("Error al reproducir video: ", error));
             }
 
-            setInterval(changeVideo, 8000); // Cambia el video cada 8 segundos
+            videoElement.addEventListener("canplay", function() {
+                fallbackImage.style.display = "none";
+                videoElement.style.display = "block";
+            });
+
+            videoElement.addEventListener("error", function() {
+                console.log("Error al cargar el video");
+                videoElement.style.display = "none";
+                fallbackImage.style.display = "block";
+            });
+
+            setInterval(changeVideo, 8000);
         });
     </script>
 </head>
 <body class="bg-black text-white">
     
-    <!-- Hero Section con Carrousel de Videos -->
+    <!-- Hero Section con Video o Imagen de Respaldo -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 w-full h-full">
-            <video id="hero-video" autoplay muted playsinline class="absolute w-full h-full object-cover">
-                <source src="https://videocdn.cdnpk.net/videos/c5c7bdbe-8de0-4b43-a938-fd61d5143eee/horizontal/previews/clear/large.mp4" type="video/mp4">
-            </video>
-        </div>
+        <img id="hero-image" src="https://img.freepik.com/free-photo/chef-pouring-special-sauce-pork-ribs-kitchen_181624-61946.jpg" class="hero-background">
+        <video id="hero-video" autoplay muted playsinline class="hero-background hidden">
+            <source src="https://videocdn.cdnpk.net/videos/c5c7bdbe-8de0-4b43-a938-fd61d5143eee/horizontal/previews/clear/large.mp4" type="video/mp4">
+        </video>
         <div class="relative text-center px-6 z-10 bg-black bg-opacity-50 p-6 rounded-lg">
-            <h1 class="text-xl md:text-3xl lg:text-5xl font-bold whitespace-nowrap">Transforma tus fotos en videos profesionales con IA</h1>
+            <h1 class="text-xl md:text-3xl lg:text-5xl font-bold whitespace-nowrap">Transformamos tus fotos en videos profesionales con IA</h1>
             <p class="mt-4 text-sm md:text-lg">Muéstrales el proceso. Haz que se enamoren de los detalles. Conecta con tu audiencia.</p>
             <a href="#contacto" class="mt-6 inline-block bg-red-500 text-white px-6 py-3 text-lg rounded-lg">Solicita tu Video</a>
         </div>
@@ -49,9 +70,9 @@
     </section>
     
     <!-- Galería de Imágenes -->
-    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 px-6">
+    <section class="grid grid-cols-1 md-grid-cols-3 gap-6 px-6">
         <div>
-            <img src="https://img.freepik.com/free-photo/close-up-person-with-red-apron-holding-dough_23-2148296872.jpg?t=st=1741956548~exp=1741960148~hmac=095dbf8a292b186f0830fe0204106f0ca53373f3c44371818c874ddc29069641&w=826" class="rounded-lg shadow-lg h-64 object-cover w-full">
+            <img src="https://img.freepik.com/free-photo/close-up-person-with-red-apron-holding-dough_23-2148296872.jpg" class="rounded-lg shadow-lg h-64 object-cover w-full">
             <p class="mt-2 text-center font-bold text-lg">Muéstrales el proceso</p>
             <p class="text-center text-sm">Deja que tus clientes vean cada detalle del amor y dedicación en cada plato.</p>
         </div>
