@@ -53,11 +53,11 @@
     <!-- Hero Section con Video o Imagen de Respaldo -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
         <img id="hero-image" src="https://img.freepik.com/free-photo/chef-pouring-special-sauce-pork-ribs-kitchen_181624-61946.jpg" class="hero-background">
-        <video id="hero-video" autoplay muted playsinline class="hero-background hidden">
+        <video id="hero-video" autoplay muted loop playsinline class="hero-background">
             <source src="https://videocdn.cdnpk.net/videos/c5c7bdbe-8de0-4b43-a938-fd61d5143eee/horizontal/previews/clear/large.mp4" type="video/mp4">
         </video>
         <div class="relative text-center px-6 z-10 bg-black bg-opacity-50 p-6 rounded-lg">
-            <h1 class="text-xl md:text-3xl lg:text-5xl font-bold whitespace-nowrap">Transformamos tus fotos en videos profesionales con IA</h1>
+            <h1 class="text-xl md:text-3xl lg:text-5xl font-bold whitespace-nowrap">Transforma tus fotos en videos profesionales con IA</h1>
             <p class="mt-4 text-sm md:text-lg">Muéstrales el proceso. Haz que se enamoren de los detalles. Conecta con tu audiencia.</p>
             <a href="#contacto" class="mt-6 inline-block bg-red-500 text-white px-6 py-3 text-lg rounded-lg">Solicita tu Video</a>
         </div>
@@ -69,20 +69,20 @@
         <p class="mt-4 max-w-3xl mx-auto">En AI Video Creations, ayudamos a restaurantes y hoteles a destacar con contenido visual atractivo generado con IA. Sin necesidad de conocimientos en edición, solo sube tus fotos y nosotros nos encargamos del resto.</p>
     </section>
     
-    <!-- Galería de Imágenes -->
-    <section class="grid grid-cols-1 md-grid-cols-3 gap-6 px-6">
-        <div>
-            <img src="https://img.freepik.com/free-photo/close-up-person-with-red-apron-holding-dough_23-2148296872.jpg" class="rounded-lg shadow-lg h-64 object-cover w-full">
+    <!-- Galería de Imágenes en formato Repeater de 3 columnas -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 px-6">
+        <div class="flex flex-col items-center">
+            <img src="https://img.freepik.com/free-photo/close-up-person-with-red-apron-holding-dough_23-2148296872.jpg" class="rounded-lg shadow-lg w-full h-64 object-cover">
             <p class="mt-2 text-center font-bold text-lg">Muéstrales el proceso</p>
             <p class="text-center text-sm">Deja que tus clientes vean cada detalle del amor y dedicación en cada plato.</p>
         </div>
-        <div>
-            <img src="https://img.freepik.com/free-photo/chef-pouring-special-sauce-pork-ribs-kitchen_181624-61946.jpg" class="rounded-lg shadow-lg h-64 object-cover w-full">
+        <div class="flex flex-col items-center">
+            <img src="https://img.freepik.com/free-photo/chef-pouring-special-sauce-pork-ribs-kitchen_181624-61946.jpg" class="rounded-lg shadow-lg w-full h-64 object-cover">
             <p class="mt-2 text-center font-bold text-lg">Haz que se enamoren de los detalles</p>
             <p class="text-center text-sm">Cada ingrediente, cada textura, cada aroma, convertido en una historia visual irresistible.</p>
         </div>
-        <div>
-            <img src="https://img.freepik.com/free-photo/portrait-male-chef-enjoying-smell-prepared-food_23-2147863758.jpg" class="rounded-lg shadow-lg h-64 object-cover w-full">
+        <div class="flex flex-col items-center">
+            <img src="https://img.freepik.com/free-photo/portrait-male-chef-enjoying-smell-prepared-food_23-2147863758.jpg" class="rounded-lg shadow-lg w-full h-64 object-cover">
             <p class="mt-2 text-center font-bold text-lg">Conecta con tu audiencia</p>
             <p class="text-center text-sm">Muestra la pasión detrás de tu negocio y crea un vínculo con tus clientes.</p>
         </div>
